@@ -50,8 +50,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddOperation.dll" />
-    <Content Include="PowerOperation.dll" />
+    <Compile Include="AddOperation.dll" />
+    <Compile Include="PowerOperation.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
