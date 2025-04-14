@@ -36,5 +36,12 @@ internal class Program
         {
             Console.WriteLine($"{operation.OperatorSymbol} ({operation.Description})");
         }
+        Console.Write("Введіть вираз (наприклад: 10 ^ 2): ");
+        string input = Console.ReadLine(); 
+        var parts = input.Split(' ');
+
+        double a = double.Parse(parts[0]);
+        string op = parts[1];
+        double b = double.Parse(parts[2]);
     }
 }
