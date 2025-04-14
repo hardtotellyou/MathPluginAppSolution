@@ -49,5 +49,7 @@ internal class Program
             Console.WriteLine($"Операція '{op}' не підтримується.");
             return;
         }
+        double result = operationToExecute.Calculate(a, b);
+        Console.WriteLine($"Результат: {result}");
     }
 }
