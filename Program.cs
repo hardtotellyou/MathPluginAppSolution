@@ -18,9 +18,8 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        var operations = new List<IMathOperation>();{
-            new PowerOperation(),
-            new AddOperation()
+        var operations = new List<IMathOperation>(){
+            new PowerOperation(), new AddOperation()
          };
         Console.WriteLine($"Загружено {operations.Count} операцій:");
         foreach (var operation in operations)
