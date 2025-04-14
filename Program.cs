@@ -18,7 +18,6 @@ namespace MathCore
     {
         static void Main(string[] args)
         {
-
             var operations = new List<IMathOperation>();
         }
     }
