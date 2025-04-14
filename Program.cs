@@ -31,5 +31,10 @@ internal class Program
                 }
             }
         }
+        Console.WriteLine($"Загружено {operations.Count} операций:");
+        foreach (var operation in operations)
+        {
+            Console.WriteLine($"{operation.OperatorSymbol} ({operation.Description})");
+        }
     }
 }
