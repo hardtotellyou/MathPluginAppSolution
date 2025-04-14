@@ -14,10 +14,22 @@ namespace MathCore
             double Calculate(double a, double b);
         }
 }
-    internal class Program
+internal class Program
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        var operations = new List<IMathOperation>();
+        foreach (var file in Directory.GetFiles("Operations", "*.dll"))
         {
-            var operations = new List<IMathOperation>();
+            Assembly asm = Assembly.LoadFrom(file);
+            foreach (var type in asm.GetTypes())
+            {
+                if (typeof(IMathOperation).IsAssignableFrom(type) && !type.IsInterface)
+                {
+                    var opInstance = (IMathOperation)Activator.CreateInstance(type);
+                    operations.Add(opInstance);
+                }
+            }
         }
     }
+}
