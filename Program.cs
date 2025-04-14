@@ -31,7 +31,7 @@ internal class Program
                 }
             }
         }
-        Console.WriteLine($"Загружено {operations.Count} операций:");
+        Console.WriteLine($"Загружено {operations.Count} операцій:");
         foreach (var operation in operations)
         {
             Console.WriteLine($"{operation.OperatorSymbol} ({operation.Description})");
@@ -43,5 +43,11 @@ internal class Program
         double a = double.Parse(parts[0]);
         string op = parts[1];
         double b = double.Parse(parts[2]);
+        var operationToExecute = operations.FirstOrDefault(o => o.OperatorSymbol == op);
+        if (operationToExecute == null)
+        {
+            Console.WriteLine($"Операція '{op}' не підтримується.");
+            return;
+        }
     }
 }
