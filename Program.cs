@@ -18,19 +18,10 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        var operations = new List<IMathOperation>();
-        foreach (var file in Directory.GetFiles("Operations", "*.dll"))
-        {
-            Assembly asm = Assembly.LoadFrom(file);
-            foreach (var type in asm.GetTypes())
-            {
-                if (typeof(IMathOperation).IsAssignableFrom(type) && !type.IsInterface)
-                {
-                    var opInstance = (IMathOperation)Activator.CreateInstance(type);
-                    operations.Add(opInstance);
-                }
-            }
-        }
+        var operations = new List<IMathOperation>();{
+            new PowerOperation(),
+            new AddOperation()
+         };
         Console.WriteLine($"Загружено {operations.Count} операцій:");
         foreach (var operation in operations)
         {
